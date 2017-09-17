@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=t :project_name %> | <%= yield(:title) %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all'  %>
+    <%= javascript_include_tag 'application'  %>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+  </head>
+
+  <body>
+  <%= render template: 'layouts/navbar' %>
+  <%= render partial: "layouts/flash", flash: flash %>
+  <%= render template: 'layouts/footer' %>
+
+  <%= yield %>
+  </body>
+</html>

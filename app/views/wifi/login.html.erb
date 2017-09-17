@@ -1,0 +1,46 @@
+<%provide(:title, "Вход")%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= form_for( @wifi , :html => {:class => "form-signin", :role => "form"}, url: "/wifi/login") do |f| %>
+        <h2 class="">Вход в WI-FI зону Vozovoz.ru</h2>
+
+          <%= errors_for(@wifi) %>
+
+
+        <div class="form-group <%= @wifi.errors[:phone].present? ? "has-error" : "" %>">
+          <%= f.label :phone, 'Телефон', class: "checkbox" %>
+          <%= f.text_field :phone, placeholder: "79111111111",  :class => 'form-control input-lg'  %>
+          <%= errors_for_input @wifi, :phone %>
+        </div>
+
+        <div class="form-group <%= @wifi.errors[:code].present? ? "has-error" : "" %>">
+          <%= f.label :code, 'Код из СМС', class: "checkbox" %>
+          <%= f.text_field :code, placeholder: "Код из SMS",  :class => 'form-control input-lg'  %>
+          <%= errors_for_input @wifi, :code %>
+        </div>
+
+        <div class="form-group">
+           <%= f.submit "Войти", :class=> "btn btn-lg btn-primary btn-block" %>
+        </div>
+
+        <div class="agreement text-center">
+          <a href="/wifi/agreement">Пользовательское соглашение</a>
+        </div>
+      </form>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div> <!-- /container -->
+
+
+<script>
+    jQuery(function($){
+
+        $("#wifi_login_form_phone").mask("79999999999");
+        $("#wifi_login_form_phone").focus();
+
+    });
+</script>

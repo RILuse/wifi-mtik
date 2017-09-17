@@ -1,0 +1,20 @@
+<%provide(:title, @router.identity)%>
+<div class="container">
+  <div class="container-fluid">
+    <div class="row"><ol class="breadcrumb">
+      <li><a href="/admin">Административная панель</a></li>
+      <li><a href="/router">Роутеры</a></li>
+      <li class="active"><%= @router.identity%></li>
+    </ol>
+      <div class="col-md-offset-0 col-md-6">
+        <h2 class=""><%= @router.identity%></h2>
+        <label class="checkbox">IPv4: <%= @router.ip%></label>
+        <label class="checkbox">Port: <%= @router.port%></label>
+        <label class="checkbox">Логин: <%= @router.login%></label>
+        <label class="checkbox">Пароль: <%= @router.password%></label>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div> <!-- /container -->

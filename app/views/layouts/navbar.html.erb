@@ -1,0 +1,59 @@
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a  href="/">
+        <img class="logo" src="<%= image_url('logo.png')%>">
+      </a>
+
+
+      <!-- Collapsed Hamburger -->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <!-- Branding Image -->
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="app-navbar-collapse">
+      <!-- Left Side Of Navbar -->
+     <!-- <ul class="nav navbar-nav">
+        &nbsp;
+      </ul>
+!-->
+      <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if current_user.try(:admin?) %>
+            <li><%= link_to "Администрирование", "/admin" %></li>
+        <% else %>
+            <li><%= link_to "Регистрация", "/wifi/registration" %></li>
+            <li><%= link_to "Вход в сеть", "/wifi/login" %></li>
+            <li><%= link_to "Соглашение", "/wifi/agreement" %></li>
+            <% end %>
+        <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.email %> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+
+
+                <li>
+                  <%= link_to('Редактировать профиль', edit_user_registration_path) %>
+                </li>
+                <li> <%= link_to('Выход', destroy_user_session_path, :method => :delete) %></li>
+
+              </ul>
+            </li>
+        <% else %>
+
+        <% end%>
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

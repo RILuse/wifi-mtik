@@ -1,0 +1,50 @@
+<%provide(:title, "Роутеры")%>
+<div class="container">
+  <div class="container-fluid">
+    <div class="row"> <ol class="breadcrumb">
+      <li><a href="/admin">Административная панель</a></li>
+      <li class="active">Роутеры</li>
+    </ol>
+      <div class="col-md-12">
+
+        <div class="row">
+          <div class="col-md-10">  <h2 class="magin-0">Роутеры</h2></div>
+          <div class="col-md-2"><a class="btn btn-primary pull-right" href="/router/new">Добавить</a> </div>
+        </div>
+        <hr>
+
+        <table class="table table-striped table-hover table-bordered table-condensed">
+          <thead>
+          <tr>
+            <th>Id</th>
+            <th>Название</th>
+            <th>IP</th>
+
+            <th>Действие</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @routers.each do |router|%>
+
+          <tr>
+            <th scope="row"><%= router.id%></th>
+            <td><%= router.identity%></td>
+            <td><%= router.ip%></td>
+
+            <td>
+              <a href="/router/<%= router.id %>"><span class="glyphicon glyphicon-share"></span></a>
+              <a href="/router/edit/<%=router.id %>"><span class="glyphicon glyphicon-edit"></span></a>
+              <a href="/router/remove/<%= router.id %>"><span class="glyphicon glyphicon-remove"></span></a>
+            </td>
+
+          </tr>
+
+              <%end%>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div> <!-- /container -->

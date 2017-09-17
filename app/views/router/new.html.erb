@@ -1,0 +1,69 @@
+<%provide(:title, "Добавить роутер")%>
+<div class="container">
+<div class="container-fluid">
+  <div class="row">
+    <ol class="breadcrumb">
+      <li><a href="/admin">Административная панель</a></li>
+      <li><a href="/router">Роутеры</a></li>
+      <li class="active">Добавить роутер</li>
+    </ol>
+    <div class="col-md-offset-0 col-md-6">
+      <%= form_for( @router , :html => {:class => "form-router", :role => "form"}, url: router_create_path) do |f| %>
+          <h2 class="">Добавить роутер</h2>
+
+
+          <%= errors_for(@router) %>
+
+
+          <div class="form-group <%= @router.errors[:identity].present? ? "has-error" : "" %>">
+            <%= f.label :identity, 'Уникальный идентификатор', class: "checkbox" %>
+            <%= f.text_field :identity, placeholder: "CloudCore1",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @router, :identity %>
+          </div>
+
+          <div class="form-group <%= @router.errors[:ip].present? ? "has-error" : "" %>">
+            <%= f.label :ip, 'IPv4', class: "checkbox" %>
+            <%= f.text_field :ip, placeholder: "192.168.0.1",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @router, :ip %>
+          </div>
+
+          <div class="form-group <%= @router.errors[:port].present? ? "has-error" : "" %>">
+            <%= f.label :port, 'API PORT', class: "checkbox" %>
+            <%= f.text_field :port, placeholder: "8728",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @router, :port %>
+          </div>
+
+          <div class="form-group <%= @router.errors[:login].present? ? "has-error" : "" %>">
+            <%= f.label :login, 'API Логин', class: "checkbox" %>
+            <%= f.text_field :login, placeholder: "api_user",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @router, :login %>
+          </div>
+
+          <div class="form-group <%= @router.errors[:password].present? ? "has-error" : "" %>">
+            <%= f.label :password, 'API Пароль', class: "checkbox" %>
+            <%= f.text_field :password, placeholder: "api_password",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @router, :password %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Добавить", :class=> "btn btn-lg btn-primary btn-block" %>
+          </div>
+
+          </form>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+<script>
+    jQuery(function($){
+
+        $("#wifi_login_form_phone").mask("7 (999) 999-99-99");
+        $("#wifi_login_form_phone").focus();
+
+    });
+</script>

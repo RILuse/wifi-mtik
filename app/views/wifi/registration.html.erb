@@ -1,0 +1,48 @@
+<%provide(:title, "Регистрация")%>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= form_for( @wifi , :html => {:class => "form-signin", :role => "form"}, url: "/wifi/registration") do |f| %>
+          <h2 class="">Регистрация в WI-FI зоне Vozovoz.ru</h2>
+          <p class="small">Для получения доступа к сети wi-fi пройдите регистрацию.</p>
+
+          <%= errors_for(@wifi) %>
+
+
+          <div class="form-group <%= @wifi.errors[:phone].present? ? "has-error" : "" %>">
+            <%= f.label :phone, 'Телефон', class: "checkbox" %>
+            <%= f.text_field :phone, placeholder: "79111111111",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @wifi, :phone %>
+          </div>
+
+          <div class="form-group <%= @wifi.errors[:order].present? ? "has-error" : "" %>">
+            <%= f.label :order, 'Экспедиторская расписка', class: "checkbox" %>
+            <%= f.text_field :order, placeholder: "ЭР",  :class => 'form-control input-lg'  %>
+            <%= errors_for_input @wifi, :order %>
+          </div>
+
+          <div class="form-group">
+            <%= f.submit "Регистрация", :class=> "btn btn-lg btn-primary btn-block" %>
+          </div>
+
+          <div class="agreement text-center">
+            <p class="small text-muted">Нажимая на кнопку "Регистрация", подтверждаю свое согласие на обработку персональных данных в соответствии с положениями Федерального закона от 27.07.2006 N 152-ФЗ "О персональных данных" и условиями Политики в отношении обработки персональных данных, предоставляемых на сайте.</p>
+            <a href="/wifi/agreement">Пользовательское соглашение</a>
+          </div>
+          </form>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+</div> <!-- /container -->
+
+
+<script>
+    jQuery(function($){
+
+        $("#wifi_login_form_phone").mask("79999999999");
+        $("#wifi_login_form_phone").focus();
+
+    });
+</script>

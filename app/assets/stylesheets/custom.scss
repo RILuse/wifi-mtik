@@ -1,0 +1,54 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+
+}
+
+h2.magin-0 {
+  margin: 0;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: 30px;
+  padding: 5px;
+  background-color: #323232;;
+}
+.navbar {
+  margin-top: 1px;
+
+}
+.navbar-nav {
+  font-weight: bold;
+
+}
+
+.agreement {
+  margin-top: 20px;
+}
+.agreement a{
+  font-weight: bold;
+}
+p {
+  font-family: Helvetica, Arial, sans-serif;
+}
+.logo {
+  margin-top: 2px;
+
+}
+nav {
+  border-top: none !important;
+}
+
+@media only screen and (max-width: 500px) {
+
+}

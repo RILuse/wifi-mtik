@@ -1,0 +1,2 @@
+module WifiControllerHelper
+end

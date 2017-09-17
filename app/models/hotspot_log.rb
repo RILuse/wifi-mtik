@@ -1,0 +1,2 @@
+class HotspotLog < ApplicationRecord
+end
